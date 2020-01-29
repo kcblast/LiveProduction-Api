@@ -20,4 +20,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LiveProduction-Api.Core\LiveProduction-Api.Core.csproj" />
+    <ProjectReference Include="..\LiveProduction-Api.Domain\LiveProduction-Api.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -12,4 +12,9 @@
     <PackageReference Include="Serilog" Version="2.9.1-dev-01154" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LiveProduction-Api.Core\LiveProduction-Api.Core.csproj" />
+    <ProjectReference Include="..\LiveProduction-Api.Data\LiveProduction-Api.Data.csproj" />
+  </ItemGroup>
+
 </Project>

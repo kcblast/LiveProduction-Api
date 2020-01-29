@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\LiveProduction-Api.Core\LiveProduction-Api.Core.csproj" />
+  </ItemGroup>
+
 </Project>
