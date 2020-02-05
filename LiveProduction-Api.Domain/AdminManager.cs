@@ -100,10 +100,10 @@ namespace LiveProduction_Api.Domain
 
 
 
-        public async Task<Tuple<string, object>> GetBuyerAsync(Guid UserId)
-        {
+        //public async Task<Tuple<string, object>> GetBuyerAsync(Guid UserId)
+        //{
             
-        }
+        //}
 
         public Task<Tuple<string, ProductDTO>> GetProduct()
         {
@@ -129,9 +129,29 @@ namespace LiveProduction_Api.Domain
         {
             try
             {
-                var buyer = await _context.Sellers.Where(x => x.UserId == UserId).Include(x =>
+                var seller = await _context.Sellers.Where(x => x.UserId == UserId).Include(x =>
                 x.User).FirstOrDefaultAsync();
 
+                SellerDTO newObj = new SellerDTO
+                {
+
+                    FirstName = seller.FirstName,
+                    LastName = seller.LastName,
+                    PhoneNumber = seller.PhoneNumber,
+                    Email = seller.Email,
+                    ShopAddress = seller.Address,
+                    CompanyName = seller.CompanyName
+                };
+                
+                if (newObj == null)
+                {
+                    return new Tuple<string, object>(StatusMessage.NOT_FOUND, null);
+                }
+                return new Tuple<string, object>(StatusMessage.Ok, newObj);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
             }
         }
     }

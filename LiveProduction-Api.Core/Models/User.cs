@@ -11,10 +11,12 @@ namespace LiveProduction_Api.Core.Models
         public string UserName { get; set; }
         public string EmailAddress { get; set; }
         public bool EmailConfirmed { get; set; }
-        public Guid EmailActivationToken { get; set; } = Guid.NewGuid();
+        //public Guid EmailActivationToken { get; set; } = Guid.NewGuid();
         public DateTime? LastLoginDate { get; set; }
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
+        public string PasswordResetCode { get; set; }
+        public string ConfirmationToken { get; set; }
         public ICollection<UserRole> Roles { get; set; }  = new List<UserRole>();
     }
 }

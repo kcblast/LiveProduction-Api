@@ -21,11 +21,42 @@ namespace LiveProduction_Api.Data
         public DbSet<OrderProduct> OrderProducts { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Seller> Sellers { get; set; }
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Role>().HasIndex(a => a.Name).IsUnique(true);
             modelBuilder.Entity<OrderProduct>()
-            .HasKey(x => new { x.ProductId, x.OrderId });
+            .HasIndex(x => new { x.ProductId, x.OrderId });
+
+            modelBuilder.Entity<Role>().HasData(new Role
+            {
+                RoleId = 1,
+                Name = "Admin",
+                Description = "Admin"
+            },
+            new
+            {
+
+                RoleId = 2,
+                Name = "SuperAdmin",
+                Description = "SuperAdmin"
+            },
+            new
+            {
+                RoleId = 3,
+                Name = "Buyer",
+                Description = "Buyer"
+            },
+             new
+             {
+                 RoleId = 4,
+                 Name = "Seller",
+                 Description = "Seller"
+             }
+
+
+            );
         }
     }
     

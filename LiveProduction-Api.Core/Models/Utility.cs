@@ -6,6 +6,11 @@ namespace LiveProduction_Api.Core.Models
 {
     public class Utility
     {
+        public enum Gender
+        {
+            Male,
+            Female
+        }
         public enum ProductStatus
         {
 
@@ -14,7 +19,7 @@ namespace LiveProduction_Api.Core.Models
             Approved
         }
 
-        public enum Roles
+        public enum Roles : int
         {
             Admin = 1,
             SuperAdmin = 2,

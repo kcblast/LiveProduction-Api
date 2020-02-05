@@ -13,6 +13,7 @@ namespace LiveProduction_Api.Core.Models.Products
         public string Productdescription { get; set; }
         public string Productvalue { get; set; }
         public int ProductCode { get; set; }
+        public UserProfile UserProfile { get; set; }
         public ICollection<Stock> Stocks { get; set; }
         public ICollection<OrderProduct> OrderProducts { get; set; }
     }
